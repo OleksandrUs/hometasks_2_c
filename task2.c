@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
         }
 
         // Delete some elements from the list
-        printf("Removing elements 1, 8(not in list), 5 from the list");
+        printf("Removing elements 1, 8(not in list), 5 from the list.\n");
         data.value = 1; 
         list_remove(&list, &data);
         data.value = 8; // this element is not in the list

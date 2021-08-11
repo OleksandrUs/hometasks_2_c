@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int ar_push(ARRAY_INT **arr, int value)
 {
         // If it is the first element to add into the array, the memory will be allocated
