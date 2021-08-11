@@ -3,11 +3,11 @@
 #include <stdlib.h>
 
 
-int ar_push(struct ARRAY_INT **arr, int value)
+int ar_push(ARRAY_INT **arr, int value)
 {
         // If it is the first element to add into the array, the memory will be allocated
         if((*arr) == NULL) {
-                (*arr) = malloc(sizeof(struct ARRAY_INT));
+                (*arr) = malloc(sizeof(ARRAY_INT));
                 if(*arr == NULL) {
                         return MEMORY_ALLOCATION_ERROR;
                 }
@@ -43,7 +43,7 @@ int ar_push(struct ARRAY_INT **arr, int value)
         return SUCCESS;
 }
 
-int ar_find_first(const struct ARRAY_INT *arr, int value)
+int ar_find_first(const ARRAY_INT *arr, int value)
 {
         if(arr == NULL) {
                 return ELEMENT_NOT_FOUND;
@@ -57,12 +57,36 @@ int ar_find_first(const struct ARRAY_INT *arr, int value)
         return ELEMENT_NOT_FOUND;
 }
 
-int ar_remove(struct ARRAY_INT *arr, int index)
+int ar_remove(ARRAY_INT *arr, int index)
 {
-        // TODO: add implementation
+        if((arr == NULL) || (arr->array == NULL)) {
+                return ELEMENT_NOT_FOUND;
+        }
+
+        if((index < 0) || (index > (arr->size - 1))) {
+                return ARR_IDEX_OUT_OF_BOUNDS;
+        }
+
+        int *new_arr = malloc((arr->size-1) * sizeof(int));
+        if(new_arr == NULL) {
+                return MEMORY_ALLOCATION_ERROR;
+        }
+
+        for(int i=0; i < index; i++) {
+                new_arr[i] = arr->array[i];
+        }
+        for(int i=index+1; i < arr->size; i++) {
+                new_arr[i-1] = arr->array[i];
+        }
+
+        int *old_arr = arr->array;
+        arr->array = new_arr;
+        arr->size--;
+        free(old_arr);
+        return SUCCESS;
 }
 
-int ar_size(struct ARRAY_INT *arr)
+int ar_size(ARRAY_INT *arr)
 {
         if(arr != NULL) {
                 return arr->size;
@@ -70,7 +94,7 @@ int ar_size(struct ARRAY_INT *arr)
         return ARR_EMPTY;
 }
 
-void ar_destroy(struct ARRAY_INT *arr)
+void ar_destroy(ARRAY_INT *arr)
 {
         if((arr != NULL) && (arr->array != NULL))
         {
@@ -80,7 +104,7 @@ void ar_destroy(struct ARRAY_INT *arr)
         }
 }
 
-void ar_print(const struct ARRAY_INT *arr)
+void ar_print(const ARRAY_INT *arr)
 {
         if((arr != NULL) && (arr->array != NULL)) {
                 printf("[");

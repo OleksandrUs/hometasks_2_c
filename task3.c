@@ -3,7 +3,7 @@
  * Purpose: create an integer array library with functions ar_push(), ar_find_first(),
  * ar_remove(). Array should be allocated dynamically. The ar_push() function adds
  * a new element after the last one; ar_find_first() returns the positive index of
- * the first occurence of the given element in the array or -1 if the number is not
+ * the first occurrence of the given element in the array or -1 if the number is not
  * in the array; ar_remove() removes the element by it's index. Order of elements 
  * in an array is not important.
  * 
@@ -24,7 +24,7 @@
  */
 int main(int argc, char *argv[])
 {
-        struct ARRAY_INT *array = NULL;
+        ARRAY_INT *array = NULL;
 
         // Add elements to the array
         ar_push(&array, 1);
@@ -46,6 +46,19 @@ int main(int argc, char *argv[])
         printf("The index of %d is %d\n", value_to_find, ar_find_first(array, value_to_find));
         value_to_find = 9;
         printf("The index of %d is %d\n", value_to_find, ar_find_first(array, value_to_find));
+
+        // Remove some elements from the array
+        int index = 2;
+        printf("Remove the element with index %d\n", index);
+        ar_remove(array, index);
+        ar_print(array);
+        printf("size=%d\n", array->size);
+
+        index = 0;
+        printf("Remove the element with index %d\n", index);
+        ar_remove(array, 0);
+        ar_print(array);
+        printf("size=%d\n", array->size);
 
         // Delete all elements in the array and free the allocated memory
         ar_destroy(array);
