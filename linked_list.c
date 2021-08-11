@@ -48,7 +48,29 @@ int list_contains(const struct LIST_ITEM *head, const struct DATA *data)
 
 int list_remove(struct LIST_ITEM **head, const struct DATA *data)
 {
-        // TODO: add function implementation
+        // If there is no elements in the list
+        if((*head) == NULL) {
+                return FAIL;
+        }
+     
+        if((*head)->data.value == data->value) {
+                struct LIST_ITEM *temp = *head;
+                (*head) = (*head)->next;
+                free(temp);
+                return SUCCESS;
+         } else {
+                 struct LIST_ITEM *node = (*head);
+                 while(node->next != NULL) {
+                         if(node->next->data.value == data->value) {
+                               struct LIST_ITEM *temp = node->next;
+                               node->next = node->next->next;
+                               free(temp);
+                               return SUCCESS;
+                         }
+                        node = node->next;
+                 }
+         }
+        return FAIL;
 }
 
 int list_size(const struct LIST_ITEM *head)
