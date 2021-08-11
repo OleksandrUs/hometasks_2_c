@@ -55,6 +55,7 @@ int main(int argc, char *argv[])
         }
 
         // Delete some elements from the list
+        printf("Removing elements 1, 8(not in list), 5 from the list");
         data.value = 1; 
         list_remove(&list, &data);
         data.value = 8; // this element is not in the list
@@ -62,7 +63,6 @@ int main(int argc, char *argv[])
         data.value = 5;
         list_remove(&list, &data);
         
-
         // Print the number of elements in the list after deleting some of them
         printf("The linked list contains %d elements after deleting some of them.\n", list_size(list));
 

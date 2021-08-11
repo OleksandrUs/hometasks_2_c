@@ -1,15 +1,28 @@
 #ifndef _LINKED_LIST_LIB_
 #define _LINKED_LIST_LIB_
 
+// This value returns if a function call was succesfull
 #define SUCCESS 0
+
+// This value returns if a function call was unsuccesfull
 #define FAIL 1
+
+// This value returns from a function if memory allocation was unsuccessful
 #define MEMORY_ALLOCATION_ERROR 2
 
+/*
+ * This data structure is used as a wrapper around the useful data (in this case the values of int data type)
+ * and it allows to make list independent from data types stored in it
+ * (i.e. a kind of abstraction).
+ */
 struct DATA
 {
         int value;
 };
 
+/*
+ * This structure describes the element (node) of the linked list.
+ */
 struct LIST_ITEM
 {
         struct DATA data;
