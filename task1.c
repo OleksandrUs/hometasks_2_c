@@ -6,8 +6,8 @@
  * @version 1.0 11/08/2021
  */
 
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /*
  * These identifiers are used as codes to identify whether a function call was successfull
@@ -73,6 +73,7 @@ int main(int argc, char *argv[])
         if(array != NULL) {
                 free(array);
         }
+        
         return 0;
 }
 
