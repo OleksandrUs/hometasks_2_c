@@ -1,6 +1,16 @@
+/*
+ * Task3, array_int.h
+ * Purpose: The header file of the array library.
+ *
+ * @author Oleksandr Ushkarenko
+ * @version 1.0 12/08/2021
+ */
+
+
 #ifndef _ARRAY_INT_LIB_
 #define _ARRAY_INT_LIB_
 
+// Execution result codes returned by some functions
 #define SUCCESS 0
 #define ELEMENT_NOT_FOUND -1
 #define ARR_EMPTY -2
@@ -9,6 +19,11 @@
 // This value returns from a function if memory allocation was unsuccessful
 #define MEMORY_ALLOCATION_ERROR -1
 
+/*
+ * The structure is a wrapper around dynamically allocated array and it contains
+ * the pointer to the first element of the dynamically allocated array and
+ * its size (max number of elements to store).
+ */
 typedef struct {
         int *array;
         int size;

@@ -1,3 +1,11 @@
+/*
+ * Task2, linked_list.h
+ * Purpose: The header file of the linked list library.
+ *
+ * @author Oleksandr Ushkarenko
+ * @version 1.0 12/08/2021
+ */
+
 #ifndef _LINKED_LIST_LIB_
 #define _LINKED_LIST_LIB_
 

@@ -1,3 +1,11 @@
+/*
+ * Task2, linked_list.c
+ * Purpose: The implementation of the linked list library functions.
+ *
+ * @author Oleksandr Ushkarenko
+ * @version 1.0 12/08/2021
+ */
+
 #include "linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
